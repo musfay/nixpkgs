@@ -26898,6 +26898,8 @@ in
 
   topydo = callPackage ../applications/misc/topydo {};
 
+  tok = libsForQt5.callPackage ../applications/networking/instant-messengers/tok { };
+
   torchat = callPackage ../applications/networking/instant-messengers/torchat {
     inherit (pythonPackages) wrapPython wxPython;
   };

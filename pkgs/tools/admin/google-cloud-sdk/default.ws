@@ -9,7 +9,7 @@
 
 { stdenv, lib, fetchurl, makeWrapper, python, openssl, jq, with-gce ? false }:
 
-let
+
   pythonEnv = python.withPackages (p: with p; [
     cffi
     cryptography
@@ -30,7 +30,9 @@ let
     };
   }.${system};
 
-in stdenv.mkDerivation rec {
+in
+
+ stdenv.mkDerivation rec {
   pname = "google-cloud-sdk";
   version = "344.0.0";
 
@@ -70,7 +72,7 @@ in stdenv.mkDerivation rec {
 
         mkdir -p $out/bin
         ln -s $programPath $binaryPath
-    done
+    
 
     # disable component updater and update check
     substituteInPlace $out/google-cloud-sdk/lib/googlecloudsdk/core/config.json \
@@ -97,7 +99,7 @@ in stdenv.mkDerivation rec {
     find $out -name \*.json | while read path; do
       jq -c . $path > $path.min
       mv $path.min $path
-    done
+    
 
     runHook postInstall
   '';

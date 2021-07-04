@@ -29454,6 +29454,8 @@ in
 
   cinnamon = recurseIntoAttrs (callPackage ../desktops/cinnamon { });
 
+  cutefish = callPackage ../desktops/cutefish { };
+
   inherit (cinnamon) mint-x-icons mint-y-icons;
 
   enlightenment = recurseIntoAttrs (callPackage ../desktops/enlightenment {

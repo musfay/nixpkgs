@@ -2,6 +2,6 @@
 
 lib.makeScope pkgs.newScope (self: with self; {
 
-  mkCutefishDerivation = callPackage ./mkCutefishDerivation.nix { };
+  fishui = pkgs.libsForQt5.callPackage ./fishui { };
 
 })

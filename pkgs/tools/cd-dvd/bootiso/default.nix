@@ -25,6 +25,8 @@ stdenvNoCC.mkDerivation rec {
     sha256 = "1l09d543b73r0wbpsj5m6kski8nq48lbraq1myxhidkgl3mm3d5i";
   };
 
+  patches = [ ./syslinux-lib.patch ];
+
   strictDeps = true;
   buildInputs = [ bash ];
   nativeBuildInputs = [ makeWrapper ];
